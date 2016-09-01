@@ -14,19 +14,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.gson.Gson;
 import com.work.ifanfan.knowit.model.News;
 import com.yalantis.phoenix.PullToRefreshView;
 import com.zhy.http.okhttp.callback.StringCallback;
-
-
 import java.util.Calendar;
-
-
 import java.util.Timer;
 import java.util.TimerTask;
-
 import okhttp3.Call;
 
 
@@ -119,23 +113,49 @@ public class MainActivity extends AppCompatActivity {
 
         url = "http://news-at.zhihu.com/api/4/news/latest";
 
-        Calendar date = Calendar.getInstance();
-        int year = date.get(Calendar.YEAR);//获取年份
-        int month = date.get(Calendar.MONTH) + 1;
-        int day = date.get(Calendar.DAY_OF_MONTH) - 1;
-        int dayUrl = date.get(Calendar.DAY_OF_MONTH);
-        String mDate1 = String.valueOf(year);
-        String mDate2 = String.valueOf(month);
-        String mDate3 = String.valueOf(day);
-        String mDate4 = String.valueOf(dayUrl);
-        yesterday = (TextView) findViewById(com.work.ifanfan.knowit.R.id.tv_yesterday);
-        yesterday.setText(mDate1 + "年" + mDate2 + "月" + mDate3 + "日");
-        if (month < 10) {
-            yUrl = "http://news.at.zhihu.com/api/4/news/before/" + mDate1 + "0" + mDate2 + mDate4;
-        } else {
-            yUrl = "http://news.at.zhihu.com/api/4/news/before/" + mDate1 + mDate2 + mDate4;
-        }
+        Calendar nowDate = Calendar.getInstance();
+        int nYear = nowDate.get(Calendar.YEAR);//获取年份
+        int nMonth = nowDate.get(Calendar.MONTH) + 1;
+        int nDay = nowDate.get(Calendar.DAY_OF_MONTH) - 1;
+        if (nDay == 0) {
+            Calendar lastDate = Calendar.getInstance();
+            lastDate.add(Calendar.MONTH, -1);// 减一个月
+            lastDate.set(Calendar.DATE, 1);// 把日期设置为当月第一天
+            lastDate.roll(Calendar.DATE, -1);// 日期回滚一天，也就是本月最后一天
+            int mYear = lastDate.get(Calendar.YEAR);//获取年份
+            int mMonth = lastDate.get(Calendar.MONTH) + 1;
+            int mDay = lastDate.get(Calendar.DAY_OF_MONTH);
+            String mDate1 = String.valueOf(mYear);
+            String mDate2 = String.valueOf(mMonth);
+            String mDate3 = String.valueOf(mDay);
 
+            yesterday.setText(mDate1 + "年" + mDate2 + "月" + mDate3 + "日");
+            if (mMonth<10){
+                yUrl = "http://news.at.zhihu.com/api/4/news/before/" + mDate1+"0"+mDate2+mDate3;
+            }else {
+                yUrl = "http://news.at.zhihu.com/api/4/news/before/" + mDate1+mDate2+mDate3;
+            }
+
+        }else {
+            String nDate1 = String.valueOf(nYear);
+            String nDate2 = String.valueOf(nMonth);
+            String nDate3 = String.valueOf(nDay);
+            yesterday.setText(nDate1 + "年" + nDate2 + "月" + nDate3 + "日");
+            if (nDay>10){
+                if (nMonth>10){
+                    yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+nDate2+nDate3;
+                }else {
+                    yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+"0"+nDate2+nDate3;
+                }
+            }else {
+                if (nMonth>10){
+                    yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+nDate2+"0"+nDate3;
+                }else {
+                    yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+"0"+nDate2+"0"+nDate3;
+                }
+
+            }
+        }
     }
 
     /**
@@ -214,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
         mPullToRefreshView = (PullToRefreshView) findViewById(com.work.ifanfan.knowit.R.id.pull_to_refresh);
         mRecyclerView = (RecyclerView) findViewById(com.work.ifanfan.knowit.R.id.rv_main);
         yRecyclerView = (RecyclerView) findViewById(com.work.ifanfan.knowit.R.id.rv_yesterday);
+        yesterday = (TextView) findViewById(com.work.ifanfan.knowit.R.id.tv_yesterday);
     }
 
     /**
