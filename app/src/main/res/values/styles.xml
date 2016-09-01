@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="ThemeDay" parent="AppTheme.NoActionBar">
+
+
+        <item name="colorPrimary">@color/colorMainToolbarDay</item>
+        <item name="colorPrimaryDark">@color/colorMainToolbarDay</item>
+        <item name="colorMainToolbar">@color/colorMainToolbarDay</item>
+        <item name="scrollBg">@color/scrollBgDay</item>
+        <item name="cardBg">@color/cardBgDay</item>
+        <item name="mainText">@color/mainTextDay</item>
+        <item name="targetIcon">@drawable/day</item>
+
+    </style>
+    <style name="ThemeNight" parent="AppTheme.NoActionBar">
+
+
+        <item name="colorPrimary">@color/colorMainToolbarNight</item>
+        <item name="colorPrimaryDark">@color/colorMainToolbarNight</item>
+        <item name="colorMainToolbar">@color/colorMainToolbarNight</item>
+        <item name="scrollBg">@color/scrollBgNight</item>
+        <item name="cardBg">@color/cardBgNight</item>
+        <item name="mainText">@color/mainTextNight</item>
+        <item name="targetIcon">@drawable/night</item>
+
+
+    </style>
+
+
+
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

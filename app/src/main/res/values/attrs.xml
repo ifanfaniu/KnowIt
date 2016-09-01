@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="colorMainToolbar" format="reference|color" />
+    <attr name="colorContentToolbar" format="reference|color" />
+    <attr name="scrollBg" format="reference|color" />
+    <attr name="cardBg" format="reference|color" />
+    <attr name="mainText" format="reference|color" />
+    <attr name="targetIcon" format="reference"/>
+
+
+</resources>

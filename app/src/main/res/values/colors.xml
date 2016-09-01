@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#9E9E9E</color>
+
+    <color name="colorMainToolbarDay">#00B8D4</color>
+    <color name="colorContentToolbarDay">#00B8D4</color>
+    <color name="scrollBgDay">#FFFFFF</color>
+    <color name="cardBgDay">#FFFFFF</color>
+    <color name="mainTextDay">#000000</color>
+
+    <color name="colorMainToolbarNight">#212121</color>
+    <color name="colorContentToolbarNight">#212121</color>
+    <color name="scrollBgNight">#212121</color>
+    <color name="cardBgNight">#424242</color>
+    <color name="mainTextNight">#EEEEEE</color>
+</resources>

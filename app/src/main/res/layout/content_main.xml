@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:textColor="#E5E7E9"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"/>
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:orientation="horizontal"
+            android:layout_marginTop="80dp"
+            android:paddingBottom="9dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/dot_indicator1"
+                android:src="@drawable/dot_focused"
+                android:layout_marginRight="8dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+
+            <ImageView
+                android:id="@+id/dot_indicator2"
+                android:src="@drawable/dot_focused"
+                android:layout_marginRight="8dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+
+            <ImageView
+                android:id="@+id/dot_indicator3"
+                android:src="@drawable/dot_focused"
+                android:layout_marginRight="8dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+
+            <ImageView
+                android:id="@+id/dot_indicator4"
+                android:src="@drawable/dot_focused"
+                android:layout_marginRight="8dp"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+
+            <ImageView
+                android:id="@+id/dot_indicator5"
+                android:src="@drawable/dot_focused"
+                android:layout_width="8dp"
+                android:layout_height="8dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
