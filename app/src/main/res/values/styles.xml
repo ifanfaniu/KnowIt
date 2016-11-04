@@ -23,6 +23,12 @@
         <item name="cardBg">@color/cardBgDay</item>
         <item name="mainText">@color/mainTextDay</item>
         <item name="targetIcon">@drawable/day</item>
+        <item name="navMid">@color/navMidDay</item>
+        <item name="navStart">@color/navStartDay</item>
+        <item name="navEnd">@color/navEndDay</item>
+        <item name="navIcon">@drawable/side_nav_bar</item>
+
+
 
     </style>
     <style name="ThemeNight" parent="AppTheme.NoActionBar">
@@ -35,6 +41,11 @@
         <item name="cardBg">@color/cardBgNight</item>
         <item name="mainText">@color/mainTextNight</item>
         <item name="targetIcon">@drawable/night</item>
+        <item name="navMid">@color/navMidNight</item>
+        <item name="navStart">@color/navStartNight</item>
+        <item name="navEnd">@color/navEndNight</item>
+        <item name="navIcon">@drawable/side_nav_bar_night</item>
+
 
 
     </style>

@@ -2,8 +2,12 @@ package com.work.ifanfan.knowit;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,7 +28,7 @@ import java.util.TimerTask;
 import okhttp3.Call;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private RecyclerView mRecyclerView;
     private RecyclerView yRecyclerView;
@@ -74,6 +78,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mainToolbar);
         mainToolbar.setNavigationIcon(com.work.ifanfan.knowit.R.drawable.mmenu);
 
+        //Drawer
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, mainToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         /**
          * 下拉刷新
          */
@@ -105,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
         mHttpUtil = new HttpUtil();
         mHttpUtil.getHttp(url, mStringCallback);
         mHttpUtil.getHttp(yUrl,yStringCallback);
+
+
 
 
         setmViewPager();
@@ -142,13 +157,13 @@ public class MainActivity extends AppCompatActivity {
             String nDate3 = String.valueOf(nDay);
             yesterday.setText(nDate1 + "年" + nDate2 + "月" + nDate3 + "日");
             if (nDay>10){
-                if (nMonth>10){
+                if (nMonth>=10){
                     yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+nDate2+nDate3;
                 }else {
                     yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+"0"+nDate2+nDate3;
                 }
             }else {
-                if (nMonth>10){
+                if (nMonth>=10){
                     yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+nDate2+"0"+nDate3;
                 }else {
                     yUrl = "http://news.at.zhihu.com/api/4/news/before/" + nDate1+"0"+nDate2+"0"+nDate3;
@@ -199,6 +214,30 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        } else if (id == R.id.nav_manage) {
+
+        } else if (id == R.id.nav_share) {
+
+        } else if (id == R.id.nav_send) {
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
     /**
      * 监听回调接口

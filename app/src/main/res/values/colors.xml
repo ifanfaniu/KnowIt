@@ -9,10 +9,16 @@
     <color name="scrollBgDay">#FFFFFF</color>
     <color name="cardBgDay">#FFFFFF</color>
     <color name="mainTextDay">#000000</color>
+    <color name="navMidDay">#1d8a9b</color>
+    <color name="navStartDay">#00B8D4</color>
+    <color name="navEndDay">#2ecfe8</color>
 
     <color name="colorMainToolbarNight">#212121</color>
     <color name="colorContentToolbarNight">#212121</color>
     <color name="scrollBgNight">#212121</color>
     <color name="cardBgNight">#424242</color>
     <color name="mainTextNight">#EEEEEE</color>
+    <color name="navMidNight">#212121</color>
+    <color name="navStartNight">#212121</color>
+    <color name="navEndNight">#424242</color>
 </resources>

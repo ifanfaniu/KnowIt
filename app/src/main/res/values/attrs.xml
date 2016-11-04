@@ -6,6 +6,11 @@
     <attr name="cardBg" format="reference|color" />
     <attr name="mainText" format="reference|color" />
     <attr name="targetIcon" format="reference"/>
+    <attr name="navMid" format="reference|color" />
+    <attr name="navStart" format="reference|color" />
+    <attr name="navEnd" format="reference|color" />
+    <attr name="navIcon" format="reference"/>
+
 
 
 </resources>
